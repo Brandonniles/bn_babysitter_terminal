@@ -13,8 +13,8 @@ RSpec.describe '.before_bedtime_wages' do
   context "returns pre-bedtime wages" do
 
     context "start_time => 8pm, end_time => 9pm" do
-      let(time8) {Time.new(1,1,1,20,0,0)}
-      let(time9) {Time.new(1,1,1,21,0,0)}
+      let(:time8) {Time.new(1,1,1,20,0,0)}
+      let(:time9) {Time.new(1,1,1,21,0,0)}
       it "returns 12" do
         expect(before_bedtime_wages(time8,time9)).to eql(12)
       end
@@ -22,8 +22,8 @@ RSpec.describe '.before_bedtime_wages' do
 
     #according to the rules, babysitter is only paid for FULL hours of work
     context "start_time => 6pm, end_time => 8:30pm" do
-      let(time6) {Time.new(1,1,1,18,0,0)}
-      let(time830) {Time.new(1,1,1,20,30,0)}
+      let(:time6) {Time.new(1,1,1,18,0,0)}
+      let(:time830) {Time.new(1,1,1,20,30,0)}
       it "returns 12" do
         expect(before_bedtime_wages(time8,time9)).to eql(24)
       end
@@ -31,8 +31,8 @@ RSpec.describe '.before_bedtime_wages' do
 
     #should only count the 4hrs (5-9) before bedtimes
     context "start_time => 5pm, end_time => 11pm" do
-      let(time5) {Time.new(1,1,1,17,0,0)}
-      let(time11) {Time.new(1,1,1,23,0,0)}
+      let(:time5) {Time.new(1,1,1,17,0,0)}
+      let(:time11) {Time.new(1,1,1,23,0,0)}
       it "returns 12" do
         expect(before_bedtime_wages(time8,time9)).to eql(48)
       end
