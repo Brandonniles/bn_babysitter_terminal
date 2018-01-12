@@ -24,7 +24,7 @@ RSpec.describe '.before_bedtime_wages' do
     context "start_time => 6pm, end_time => 8:30pm" do
       let(:time6) {Time.new(1,1,1,18,0,0)}
       let(:time830) {Time.new(1,1,1,20,30,0)}
-      it "returns 12" do
+      it "returns 24" do
         expect(before_bedtime_wages(time6, time830)).to eql(24)
       end
     end
@@ -33,7 +33,7 @@ RSpec.describe '.before_bedtime_wages' do
     context "start_time => 5pm, end_time => 11pm" do
       let(:time5) {Time.new(1,1,1,17,0,0)}
       let(:time11) {Time.new(1,1,1,23,0,0)}
-      it "returns 12" do
+      it "returns 48" do
         expect(before_bedtime_wages(time5, time11)).to eql(48)
       end
     end
