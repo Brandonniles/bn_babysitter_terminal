@@ -3,11 +3,12 @@ require '../lib/main'
 #still figuring out how I want to test this method
 #possibly to make sure it returns a timestamp
 #possibly to make sure it returns a timestamp in between 5pm and 4am
-RSpec.describe '.clock_in' do
-  it "returns clockin timestamp" do
-    expect(clock_in).to exist
-  end
-end
+# RSpec.describe '.clock_in' do
+#   it "returns clockin timestamp" do
+#     expect(clock_in).to exist
+#   end
+# end
+
 #for these tests the bedtime will be hardcoded at 21:00. Later version the bedtime will be dynamic
 RSpec.describe '.before_bedtime_wages' do
   context "returns pre-bedtime wages" do

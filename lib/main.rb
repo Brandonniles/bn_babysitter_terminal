@@ -1,5 +1,5 @@
-@bedtime = Time.new(1,1,1,21,0,0)
-@midnight = Time.new(1,1,2,0,0,0)
+# @bedtime = Time.new(1,1,1,21,0,0)
+# @midnight = Time.new(1,1,2,0,0,0)
 
 def clock_in
   puts "What hour did you start working?
@@ -24,7 +24,6 @@ end
 #which looks better / clearner, the above version or the below version
 def before_bedtime_wages(ci_time, co_time)
   @bedtime = Time.new(1,1,1,21,0,0)
-
   if co_time <= @bedtime && ci_time < @bedtime
     hrs = (co_time - ci_time).to_i/3600
   elsif co_time > @bedtime && ci_time < @bedtime
@@ -37,6 +36,8 @@ def before_bedtime_wages(ci_time, co_time)
 end
 
 def bedtime_wages(ci_time, co_time)
+  @bedtime = Time.new(1,1,1,21,0,0)
+  @midnight = Time.new(1,1,2,0,0,0)
   if ci_time >= @bedtime && co_time <= @midnight
     hrs = (co_time - ci_time).to_i/3600
   elsif ci_time < @bedtime && (@bedtime <= co_time && co_time <= @midnight)
@@ -47,6 +48,6 @@ def bedtime_wages(ci_time, co_time)
     #when both times are before @bedtime or both after midnight
     hrs = 0
   end
-  wages = hrs*12
+  wages = hrs*8
   return wages
 end
