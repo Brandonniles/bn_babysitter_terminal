@@ -51,3 +51,16 @@ def bedtime_wages(ci_time, co_time)
   wages = hrs*8
   return wages
 end
+
+def post_midnight_wages(ci_time, co_time)
+  @midnight = Time.new(1,1,2,0,0,0)
+  if ci_time > @midnight && co_time > @midnight
+    hrs = (co_time - ci_time).to_i/3600
+  elsif ci_time < @midnight && co_time > @midnight
+    hrs = (co_time - @midnight).to_i/3600
+  else
+    hrs = 0
+  end
+  wages = hrs*16
+  return wages
+end
