@@ -4,15 +4,26 @@
 def clock_in
   puts "What hour did you start working?
   \n*note: Please use MilitaryTime format. visit: http://www.spacearchive.info/military.htm for info
-  \n*note: if you started at 6:30, enter '6' or for 22:00 enter '22' "
+  \n*note: if you started at 6:30pm, (18:30) enter '18' or for 22:00 enter '22'
+  \n for midnight enter 0 "
   hr = gets.chomp.to_i
   puts "what minute mark of that hour did you start working?
-  \n*note: if you started at 6:30, enter '30' or for 22:15 enter '15'"
+  \n*note: if you started at 6:30pm, (18:30) enter '30' or for 22:15 enter '15'"
   min = gets.chomp.to_i
-  ci = Time.new(1,1,1,hr,min,0)
+  (17..23).include?(hr) ? ci = Time.new(1,1,1,hr,min,0) : ci = Time.new(1,1,2,hr,min,0)
   return ci
 end
 
+def clock_out
+  puts "*note please use the MilitaryTime format
+  \n What hour did you stop working?
+  \n for midnight enter 0"
+  hr = gets.chomp.to_i
+  puts "What minute mark of that hour did you stop working?"
+  min = gets.chomp.to_i
+  (17..23).include?(hr) ? co = Time.new(1,1,1,hr,min,0) : co = Time.new(1,1,2,hr,min,0)
+  return co
+end
 # def before_bedtime_wages(ci_time, co_time)
 #
 #   hrs = 0
