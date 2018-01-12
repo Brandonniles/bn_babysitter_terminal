@@ -37,12 +37,12 @@ def before_bedtime_wages(ci_time, co_time)
 end
 
 def bedtime_wages(ci_time, co_time)
-  if ci_time > @bedtime && co_time < @midnight
-    hrs = (co_time - ci_time)/3600
-  elsif ci_time < @bedtime && (@bedtime < co_time && co_time < @midnight)
-    hrs = (co_time - @bedtime)/3600
-  elsif (@bedtime < ci_time && ci_time < @midnight) && co_time > @midnight
-    hrs = (@midnight - ci_time)/3600
+  if ci_time >= @bedtime && co_time <= @midnight
+    hrs = (co_time - ci_time).to_i/3600
+  elsif ci_time < @bedtime && (@bedtime <= co_time && co_time <= @midnight)
+    hrs = (co_time - @bedtime).to_i/3600
+  elsif (@bedtime <= ci_time && ci_time <= @midnight) && co_time > @midnight
+    hrs = (@midnight - ci_time).to_i/3600
   else
     #when both times are before @bedtime or both after midnight
     hrs = 0
