@@ -15,14 +15,14 @@ def before_bedtime_wages(ci_time, co_time)
   wages = hrs*12
   return wages
 end
-#which looks better / clearner
+#which looks better / clearner, the above version or the below version
 def before_bedtime_wages(ci_time, co_time)
   if co_time < @bedtime && ci_time < @bedtime
     hrs = (co_time - ci_time)/3600
   elsif co_time > @bedtime && ci_time < @bedtime
     hrs = (@bedtime - ci_time)/3600
   else
-    wages = 0
+    hrs = 0
   end
   wages = hrs*12
   return wages
