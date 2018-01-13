@@ -4,6 +4,7 @@ puts "Welcome to the Babysitter Wage Calculator v1.0.1
 *note* for this app please use MilitaryTime Format.
 (add 12 to the hr for pm values. ex 5pm would be 17:00)
 visit http://www.spacearchive.info/military.htm for more info\n\n"
+
 BEDTIME = Time.new(1,1,1,21,0,0)
 MIDNIGHT = Time.new(1,1,2,0,0,0)
 
@@ -34,43 +35,39 @@ end
 #which looks better / clearner, the above version or the below version
 def before_bedtime_wages(ci_time, co_time)
   if co_time <= BEDTIME && ci_time < BEDTIME
-    hrs = (co_time - ci_time).to_i/3600
+    wages = ((co_time - ci_time).to_i/3600)*12
   elsif co_time > BEDTIME && ci_time < BEDTIME
-    hrs = (BEDTIME - ci_time).to_i/3600
+    wages = ((BEDTIME - ci_time).to_i/3600)*12
   else
-    hrs = 0
+    wages = 0
   end
-  wages = hrs*12
   return wages
 end
-
+#the above method returns a variable and the method below does not as a talking point.
+#clean and concise? or clarity?
 def bedtime_wages(ci_time, co_time)
   if ci_time >= BEDTIME && co_time <= MIDNIGHT
-    hrs = (co_time - ci_time).to_i/3600
-  elsif ci_time < BEDTIME && (BEDTIME <= co_time && co_time <= MIDNIGHT)
-    hrs = (co_time - BEDTIME).to_i/3600
-  elsif (BEDTIME <= ci_time && ci_time <= MIDNIGHT) && co_time > MIDNIGHT
-    hrs = (MIDNIGHT - ci_time).to_i/3600
+    return ((co_time - ci_time).to_i/3600)*8
+  elsif ci_time < BEDTIME && (BEDTIME..MIDNIGHT).include?(co_time)
+    return ((co_time - BEDTIME).to_i/3600)*8
+  elsif (BEDTIME..MIDNIGHT).include?(ci_time) && co_time > MIDNIGHT
+    return ((MIDNIGHT - ci_time).to_i/3600)*8
   elsif ci_time < BEDTIME && co_time > MIDNIGHT
-    hrs = (MIDNIGHT - BEDTIME).to_i/3600
+    return ((MIDNIGHT - BEDTIME).to_i/3600)*8
   else
     #when both times are before BEDTIME or both after midnight
-    hrs = 0
+    return 0
   end
-  wages = hrs*8
-  return wages
 end
 
 def post_midnight_wages(ci_time, co_time)
   if ci_time > MIDNIGHT && co_time > MIDNIGHT
-    hrs = (co_time - ci_time).to_i/3600
+    return ((co_time - ci_time).to_i/3600)*16
   elsif ci_time < MIDNIGHT && co_time > MIDNIGHT
-    hrs = (co_time - MIDNIGHT).to_i/3600
+    return ((co_time - MIDNIGHT).to_i/3600)*16
   else
-    hrs = 0
+    return 0
   end
-  wages = hrs*16
-  return wages
 end
 
 #before the tests were ran this method only returned 'total'
@@ -78,6 +75,7 @@ end
 def total_wages(ci_time, co_time)
   total = before_bedtime_wages(ci_time, co_time) + bedtime_wages(ci_time, co_time) + post_midnight_wages(ci_time, co_time)
   puts "You earned $#{total} in wages"
+  return "You earned $#{total} in wages"
 end
 
 total_wages(clock_in, clock_out)
