@@ -1,5 +1,4 @@
 # README
-
 Babysitter Calculator (Terminal Version)
 
 developed by Brandon Niles
@@ -17,3 +16,7 @@ The babysitter will clock in.         (Enter her start time)
 The babysitter will then clock out.   (Enter her leave time)
 The app will then calculator the amount she will charge the customer based on the rules above.
 This app runs completely from terminal or the command prompt.
+
+NOTE: This app only accepts Military Time format.
+The app will give you examples when necessary.
+Visit http://www.spacearchive.info/military.htm for more info
