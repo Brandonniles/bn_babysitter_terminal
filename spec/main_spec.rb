@@ -13,6 +13,22 @@ require '../lib/main'
 RSpec.describe '.before_bedtime_wages' do
   context "returns pre-bedtime wages" do
 
+    context 'start_time => 10:30pm, end_time => 1am' do
+      let(:time1030) { Time.new(1,1,1,22,30,0) }
+      let(:time1a) { Time.new(1,1,2,1,0,0) }
+      it "returns 0" do
+        expect(before_bedtime_wages(time1030, time1a)).to eql(0)
+      end
+    end
+
+    context 'start_time => 6pm, end_time => 2am' do
+      let(:time6) { Time.new(1,1,1,18,0,0) }
+      let(:time2a) { Time.new(1,1,2,2,0,0) }
+      it "returns 36" do
+        expect(before_bedtime_wages(time6, time2a)).to eql(36)
+      end
+    end
+
     context "start_time => 8pm, end_time => 9pm" do
       let(:time8) {Time.new(1,1,1,20,0,0)}
       let(:time9) {Time.new(1,1,1,21,0,0)}

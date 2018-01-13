@@ -3,6 +3,14 @@ require "../lib/main"
 RSpec.describe '.bedtime_wages' do
   context "returns wages * $8" do
 
+    context 'start_time => 6pm, end_time => 2am' do
+      let(:time6) { Time.new(1,1,1,18,0,0) }
+      let(:time2a) { Time.new(1,1,2,2,0,0) }
+      it "returns 24" do
+        expect(bedtime_wages(time6, time2a)).to eql(24)
+      end
+    end
+
     context "start_time => 8pm, end_time => 10pm" do
       let(:time8) {Time.new(1,1,1,20,0,0)}
       let(:time10) {Time.new(1,1,1,22,0,0)}
