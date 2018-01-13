@@ -1,25 +1,25 @@
+system('cls')
+puts "Welcome to the Babysitter Wage Calculator v1.0.1
+
+*note* for this app please use MilitaryTime Format.
+(add 12 to the hr for pm values. ex 5pm would be 17:00)
+visit http://www.spacearchive.info/military.htm for more info\n\n"
 BEDTIME = Time.new(1,1,1,21,0,0)
 MIDNIGHT = Time.new(1,1,2,0,0,0)
 
 def clock_in
-  puts "What hour did you start working?
-  \n*note: Please use MilitaryTime format. visit: http://www.spacearchive.info/military.htm for info
-  \n*note: if you started at 6:30pm, (18:30) enter '18' or for 22:00 enter '22'
-  \n for midnight enter 0 "
+  puts "What hour did you start working?\n*note: if you started at 6:30pm, (18:30) enter '18' or for 22:00 enter '22'; for midnight enter 0"
   hr = gets.chomp.to_i
-  puts "what minute mark of that hour did you start working?
-  \n*note: if you started at 6:30pm, (18:30) enter '30' or for 22:15 enter '15'"
+  puts "\nwhat minute mark of that hour did you start working?\n*note: if you started at 6:30pm, (18:30) enter '30' or for 22:15 enter '15'"
   min = gets.chomp.to_i
   (17..23).include?(hr) ? ci = Time.new(1,1,1,hr,min,0) : ci = Time.new(1,1,2,hr,min,0)
   return ci
 end
 
 def clock_out
-  puts "*note please use the MilitaryTime format
-  \n What hour did you stop working?
-  \n for midnight enter 0"
+  puts "\nWhat hour did you stop working? (for midnight enter 0)"
   hr = gets.chomp.to_i
-  puts "What minute mark of that hour did you stop working?"
+  puts "\nWhat minute mark of that hour did you stop working?"
   min = gets.chomp.to_i
   (17..23).include?(hr) ? co = Time.new(1,1,1,hr,min,0) : co = Time.new(1,1,2,hr,min,0)
   return co
@@ -73,9 +73,11 @@ def post_midnight_wages(ci_time, co_time)
   return wages
 end
 
+#before the tests were ran this method only returned 'total'
+#after they passed this method changed to print the total in a more readable format
 def total_wages(ci_time, co_time)
   total = before_bedtime_wages(ci_time, co_time) + bedtime_wages(ci_time, co_time) + post_midnight_wages(ci_time, co_time)
-  return total
+  puts "You earned $#{total} in wages"
 end
 
-clock_in
+total_wages(clock_in, clock_out)
