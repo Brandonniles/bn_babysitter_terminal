@@ -1,4 +1,4 @@
-require "../lib/main"
+require_relative "../lib/main"
 
 RSpec.describe '.bedtime_wages' do
   context "returns wages * $8" do
