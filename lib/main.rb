@@ -1,4 +1,4 @@
-require './methods'
+require_relative './methods'
 
 intro
 # puts "You earned $#{before_bedtime_wages(clock_in, clock_out)} in wages before bedtime."

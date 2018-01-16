@@ -5,9 +5,9 @@ SECONDS = 3600
 def intro
   system('cls')
   puts "Welcome to the Babysitter Wage Calculator v1.0.1
-  *note* for this app please use MilitaryTime Format.
-  (add 12 to the hr for pm values. ex 5pm would be 17:00)
-  visit http://www.spacearchive.info/military.htm for more info\n\n"
+  \n*note* For this app please use Military Time format.
+      (add 12 to the hr for pm values. ex 5pm would be 17:00)
+      visit http://www.spacearchive.info/military.htm for more info\n\n"
 end
 
 def clock_in
