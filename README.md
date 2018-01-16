@@ -20,3 +20,13 @@ This app runs completely from terminal or the command prompt.
 NOTE: This app only accepts Military Time format.
 The app will give you examples when necessary.
 Visit http://www.spacearchive.info/military.htm for more info
+
+To run the program:
+From the main project directory (bn_babysitter), type `rake run`
+
+To run tests:
+From the main project directory (bn_babysitter),
+
+Type 'rspec' to run all tests at once.
+
+For a better read out of each test add  
