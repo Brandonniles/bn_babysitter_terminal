@@ -1,4 +1,4 @@
-require '../lib/main'
+require_relative '../lib/methods'
 
 #still figuring out how I want to test this method
 #possibly to make sure it returns a timestamp
