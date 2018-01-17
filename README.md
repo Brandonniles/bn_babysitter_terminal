@@ -1,9 +1,8 @@
 # README
-Babysitter Calculator (Terminal Version)
-
+### Babysitter Calculator (Terminal Version)
+developed by Brandon Niles
 built with Ruby 2.3.3 & RSpec 3.7.0
 
-developed by Brandon Niles
 
 The babysitter:
 
