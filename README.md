@@ -30,6 +30,7 @@ Tests are run with RSpec. Depending on the version of ruby, you may need to run
 `gem install rspec` first before running tests.
 
 ##### Rake
+Depending on the version of ruby, you may need to run
 run `gem install rake`
 
 ### To run the program:
