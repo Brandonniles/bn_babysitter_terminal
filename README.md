@@ -23,6 +23,15 @@ This app runs completely from terminal or the command prompt.
 The app will give you examples when necessary.
 Visit http://www.spacearchive.info/military.htm for more info
 
+### Dependencies
+
+##### RSpec
+Tests are run with RSpec. Depending on the version of ruby, you may need to run
+`gem install rspec` first before running tests.
+
+##### Rake
+run `gem install rake`
+
 ### To run the program:
 
 From the main project directory (bn_babysitter_terminal), type `rake run`
