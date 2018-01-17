@@ -23,14 +23,14 @@ Visit http://www.spacearchive.info/military.htm for more info
 
 ### To run the program:
 
-From the main project directory (bn_babysitter), type `rake run`
+From the main project directory (bn_babysitter_terminal), type `rake run`
 
 ### To run tests:
 
 Tests are run with RSpec. Depending on the version of ruby, you may need to run
 `gem install rspec` first before running tests.
 
-From the main project directory (bn_babysitter),
+From the main project directory (bn_babysitter_terminal),
 
 Type `rspec` to run all tests at once.
 
