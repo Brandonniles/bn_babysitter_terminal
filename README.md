@@ -23,7 +23,7 @@ This app runs completely from terminal or the command prompt.
 The app will give you examples when necessary.
 Visit http://www.spacearchive.info/military.htm for more info
 
-### Dependencies
+## Dependencies
 
 ##### RSpec
 Tests are run with RSpec. Depending on the version of ruby, you may need to run
@@ -33,24 +33,22 @@ Tests are run with RSpec. Depending on the version of ruby, you may need to run
 Depending on the version of ruby, you may need to run
 run `gem install rake`
 
-### To run the program:
+## To run the program:
 
-From the main project directory (bn_babysitter_terminal), type `rake run`
+From the main project directory (bn_babysitter_terminal), run `rake run`
 
-### To run tests:
+## To run tests:
 
-Tests are run with RSpec. Depending on the version of ruby, you may need to run
-`gem install rspec` first before running tests.
+Tests are run with RSpec.
 
 From the main project directory (bn_babysitter_terminal),
-
 Type `rspec` to run all tests at once.
 
 For a better read out of each test add the flag `--format documentation`
 so it reads: `rspec --format documentation`
 
 For more specific results, testing of individual methods is allowed.
-First run `cd spec` to run individual tests from the spec directory.
+First run `cd spec` to move into the spec directory for individual method testing.
 Add any of the following filenames after `rspec`:
 
 * `before_bedtime_spec.rb` - to test wages earned before bedtime
@@ -60,6 +58,7 @@ Add any of the following filenames after `rspec`:
 * `timestamp_spec.rb` - to test timestamps for being between 5pm and 4am
 
 For example:
-`rspec bedtime_spec.rb --format documentation` would be run from inside of the spec directory.
+`rspec bedtime_spec.rb --format documentation` would be run from inside of the spec directory to test for the wages earned between bedtime and midnight.
 
 Developer potentially has more dynamic versions to follow.
+Developer also has other ideas on how to solve this kata and willing to discuss.
